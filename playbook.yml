@@ -1,0 +1,45 @@
+---
+- hosts: workstation
+
+  tasks:
+    - name: print from playbook
+      debug: msg="in playbooks/playbook.yml"
+
+    - name: install apps from homebrew
+      homebrew: name={{item}} state=present
+      with_items:
+          - coreutils
+          - git
+          - python
+          - mysql
+          - rbenv
+          - ruby
+          - wget
+
+    - name: easy install pip
+      easy_install: name=pip
+      sudo: yes
+
+    - name: install apps from pip
+      pip: name={{item}}
+      sudo: yes
+      with_items:
+          - ansible
+          - boto
+          - virtualenv
+          - cliff
+          - pyyaml
+          - awscli
+
+    # requires node/npm from above
+    - name: install global apps from npm
+      npm: name={{item}} global=yes
+      with_items:
+          - grunt-cli
+
+    - name: install gems
+      gem: name={{item}} state=latest
+      with_items:
+          - brewbygems
+          - bundler
+          - compass

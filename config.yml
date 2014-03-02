@@ -7,7 +7,7 @@ sources:
 
   url:
     - name: playbook.yml
-      url: https://db.tt/VcyI9dvr
+      url: https://raw.github.com/hkim823/battleschool/master/playbook.yml
 
   git:
     - name: 'osx'

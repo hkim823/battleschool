@@ -27,19 +27,10 @@
           - ansible
           - boto
           - virtualenv
-          - cliff
           - pyyaml
           - awscli
-
-    # requires node/npm from above
-    - name: install global apps from npm
-      npm: name={{item}} global=yes
-      with_items:
-          - grunt-cli
 
     - name: install gems
       gem: name={{item}} state=latest
       with_items:
-          - brewbygems
-          - bundler
-          - compass
+          - rake

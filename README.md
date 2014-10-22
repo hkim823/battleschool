@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 battleschool
 ============
 
@@ -236,4 +235,3 @@ TODO: cleanup cli output
 TODO: more docs
 
 TODO: default to ask sudo pass (simpler options).  Only don't ask if --no-sudo-pass is true
->>>>>>> upstream/master

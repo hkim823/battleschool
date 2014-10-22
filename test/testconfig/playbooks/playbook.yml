@@ -1,0 +1,23 @@
+---
+- hosts: workstation
+
+  tasks:
+    - name: print from playbook
+      debug: msg="in playbooks/playbook.yml"
+
+    - name: get time from user module
+      action: time-test
+      register: playbook_time
+
+    - name: print time from user module
+      debug: msg="time {{playbook_time.time}}"
+
+    - name: install java 7
+      mac_pkg: pkg_name=com.oracle.jdk7u25
+               pkg_version=1.1
+               state=present
+               url=https://edelivery.oracle.com/otn-pub/java/jdk/7u25-b15/jdk-7u25-macosx-x64.dmg
+               curl_opts='--cookie gpw_e24=http%3A%2F%2Fwww.oracle.com'
+               archive_path='JDK 7 Update 25.pkg'
+      sudo: yes
+
